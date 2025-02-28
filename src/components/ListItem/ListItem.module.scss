@@ -1,0 +1,9 @@
+.listItem {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+
+    padding: 2rem 1.2rem 2rem 1.5rem;
+    background-color: #fff;
+    border-radius: 0.3rem;
+}
