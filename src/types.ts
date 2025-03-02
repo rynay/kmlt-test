@@ -22,6 +22,7 @@ export interface Test {
     type: Type;
     status: Status;
     siteId: number;
-    site?: Site;
+    siteValue?: Site;
+    site?: string;
 }
   

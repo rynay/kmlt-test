@@ -18,18 +18,18 @@ export const ListItem: FC<Props> = ({
   type,
   status,
   siteId,
-  site,
+  siteValue,
   ...props
 }) => {
   return (
     <li
       {...props}
-      className={styles.listItem}
+      className={`${styles.listItem} ${styles[`listItem_${id}`]}`}
     >
       <div>{name}</div>
       <Type>{type}</Type>
       <Status>{status}</Status>
-      <Hostname>{site?.url}</Hostname>
+      <Hostname>{siteValue?.url}</Hostname>
       <Link id={id} status={status} />
     </li>
   );

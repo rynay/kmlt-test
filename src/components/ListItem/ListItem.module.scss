@@ -16,13 +16,15 @@
         box-shadow: 0 0 2rem #00000026;
     }
 
-    &:nth-of-type(1), &:nth-of-type(4n), &:nth-of-type(5n) {
+    &_1, &_4, &_5 {
         border-left-color: #E14165;
     }
-    &:nth-of-type(2), &:nth-of-type(7n) {
+
+    &_2, &_7 {
         border-left-color: #C2C2FF;
     }
-    &:nth-of-type(3n) {
+
+    &_3, &_6 {
         border-left-color: #8686FF;
     }
 }

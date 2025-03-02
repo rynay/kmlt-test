@@ -11,16 +11,19 @@
     }
 
     &__input {
+        font-family: inherit;
+        color: inherit;
+        font-weight: 500;
         flex: 1;
-        font-weight: 400;
         font-size: 1.4rem;
         line-height: 1;
         border: 0.1rem solid #EBEBEB;
         border-radius: 1.5rem;
         height: 4.5rem;
         padding: 0 7rem 0 3.5rem;
-
+        
         &::placeholder {
+            font-weight: 400;
             color: #D1D1D1;
         }
     }
