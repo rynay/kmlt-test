@@ -1,6 +1,10 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { Test } from "../../types";
 import styles from "./ListItem.module.scss";
+import Status from "../Status";
+import Type from "../Type";
+import Hostname from "../Hostname";
+import Link from "../Link";
 
 type Props = Omit<
   DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement>,
@@ -14,6 +18,7 @@ export const ListItem: FC<Props> = ({
   type,
   status,
   siteId,
+  site,
   ...props
 }) => {
   return (
@@ -22,10 +27,10 @@ export const ListItem: FC<Props> = ({
       className={styles.listItem}
     >
       <div>{name}</div>
-      <div>{type}</div>
-      <div>{status}</div>
-      <div>{siteId}</div>
-      <div>{siteId}</div>
+      <Type>{type}</Type>
+      <Status>{status}</Status>
+      <Hostname>{site?.url}</Hostname>
+      <Link id={id} status={status} />
     </li>
   );
 };

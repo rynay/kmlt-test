@@ -3,19 +3,26 @@ import { Site, Test } from "../../types";
 import { getSites, getTests } from "../../api/api";
 import List from "../../components/List";
 import ListItem from "../../components/ListItem";
+import Filter from "../../components/Filter";
+import Search from "../../components/Search";
+import Page from "../../components/Page";
 
 export const Dashboard = () => {
-    const [sites, setSites] = useState<Site[]>([])
     const [tests, setTests] = useState<Test[]>([])
-  
+
     useEffect(() => {
       const fetchAndSetData = async () => {
         try {
-          const fetchedSites = await getSites();
-          if (fetchedSites) setSites(fetchedSites);
-          
           const fetchedTests = await getTests();
-          if (fetchedTests) setTests(fetchedTests);
+          const fetchedSites = await getSites();
+          if (fetchedSites) {
+            setTests((fetchedTests || []).map(
+              test => ({
+                ...test,
+                site: fetchedSites.find(el => el.id === test.siteId),
+              })
+            ))
+          }
         } catch (error) {
           console.error(error);
         }
@@ -24,17 +31,15 @@ export const Dashboard = () => {
       fetchAndSetData();
     }, []);
   
-    console.log({ sites, tests })
-
     return (
-        <div>
-            <h1>Dashboard</h1>
-            <input /> {/* Search */}
-            <List>
-                {tests.map((test) => (
-                    <ListItem key={test.id} {...test} />
-                ))}
-            </List>
-        </div>
+      <Page title="Dashboard">
+        <Search itemsCount={tests.length} onSearch={() => {}} />
+        <Filter />
+        <List>
+            {tests.map((test) => (
+                <ListItem key={test.id} {...test} />
+            ))}
+        </List>
+      </Page>
     )
 }

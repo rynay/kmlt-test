@@ -1,0 +1,16 @@
+.filter {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr 1.5fr 1fr;
+    align-items: center;
+
+    margin-top: 3rem;
+    padding: 2rem 1.2rem;
+    border-left: 0.3rem solid transparent;
+
+    list-style-type: none;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: #999999;
+    font-weight: 500;
+    font-family: Roboto, sans-serif;
+}
