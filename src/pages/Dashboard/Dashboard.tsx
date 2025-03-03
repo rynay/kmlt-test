@@ -7,9 +7,10 @@ import Filter from "../../components/Filter";
 import Search from "../../components/Search";
 import Page from "../../components/Page";
 import Loader from "../../components/Loader";
-import { filterBySearchString, mapTests, sortByParam } from "./helpers";
+import { filterBySearchString, sortByParam } from "./helpers";
 import { FILTERS } from "./constants";
 import Empty from "../../components/Empty";
+import { mapTests } from "../../helpers";
 
 export const Dashboard = () => {
     const [tests, setTests] = useState<Test[]>([]);
@@ -37,6 +38,12 @@ export const Dashboard = () => {
       }
   
       fetchAndSetData();
+
+      return () => {
+        setTests([]);
+        setFilteredTests([]);
+        setLoading(true);
+      }
     }, []);
 
     const handleChange = useCallback((
@@ -80,7 +87,7 @@ export const Dashboard = () => {
     }, []);
 
     return (
-      <Page title="Dashboard">
+      <Page title="Dashboard" loading={loading}>
         <Search
           itemsCount={filteredTests.length}
           search={search}
@@ -88,7 +95,6 @@ export const Dashboard = () => {
         />
         {!!filteredTests.length && <Filter sort={sort} order={order} onSort={handleSort} filters={FILTERS} />}
         {!filteredTests.length && !loading && <Empty onReset={handleReset} />}
-        <Loader loading={loading} />
         <List>
           {filteredTests.map((test) => (
             <ListItem key={test.id} {...test} />

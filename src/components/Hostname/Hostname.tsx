@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { parseHostname } from "./helpers";
 import styles from './Hostname.module.scss';
+import { parseHostname } from "../../helpers";
 
 type Props = {
     children?: string;

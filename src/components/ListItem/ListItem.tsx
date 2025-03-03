@@ -10,7 +10,9 @@ type Props = Omit<
   DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement>,
   "id"
 > &
-  Test;
+  Test & {
+  withLink?: boolean;
+};
 
 export const ListItem: FC<Props> = ({
   id,
@@ -19,18 +21,19 @@ export const ListItem: FC<Props> = ({
   status,
   siteId,
   siteValue,
+  withLink = true,
   ...props
 }) => {
   return (
     <li
       {...props}
-      className={`${styles.listItem} ${styles[`listItem_${id}`]}`}
+      className={`${styles.listItem} ${withLink && styles[`listItem_${id}`]}`}
     >
       <div>{name}</div>
       <Type>{type}</Type>
       <Status>{status}</Status>
       <Hostname>{siteValue?.url}</Hostname>
-      <Link id={id} status={status} />
+      { withLink && <Link id={id} status={status} /> }
     </li>
   );
 };

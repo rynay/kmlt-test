@@ -20,3 +20,13 @@ export const getTests = async () => {
         console.error(error);
     }
 };
+
+export const getTest = async (id: string) => {
+    try {
+        const response = await fetch(API_ROUTES.TEST(id));
+        const result = await response.json();
+        return result as Test;
+    } catch (error) {
+        console.error(error);
+    }
+};
