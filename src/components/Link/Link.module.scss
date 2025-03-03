@@ -1,28 +1,28 @@
 .link {
-    font-size: 1.2rem;
-    color: #fff;
-    font-family: Montserrat, sans-serif;
-    font-weight: 600;
-    line-height: 1;
-    text-decoration: none;
-    border-radius: 1rem;
-    height: 3rem;
-    width: 9.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s;
+  font-size: 1.2rem;
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: 1rem;
+  height: 3rem;
+  width: 9.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
 
-    &.results {
-        background-color: #2EE5AC;
-        &:hover {
-            background-color: #29ca97;
-        }
+  &.results {
+    background-color: #2ee5ac;
+    &:hover {
+      background-color: #29ca97;
     }
-    &.finalize {
-        background-color: #7D7D7D;
-        &:hover {
-            background-color: #6c6c6c;
-        }
+  }
+  &.finalize {
+    background-color: #7d7d7d;
+    &:hover {
+      background-color: #6c6c6c;
     }
+  }
 }

@@ -1,14 +1,14 @@
 .status {
-    font-size: 1.2rem;
-    color: #5C5C5C;
+  font-size: 1.2rem;
+  color: #5c5c5c;
 
-    &.paused {
-        color: #FF8346;
-    }
-    &.stopped {
-        color: #FE4848;
-    }
-    &.online {
-        color: #1BDA9D;
-    }
+  &.paused {
+    color: #ff8346;
+  }
+  &.stopped {
+    color: #fe4848;
+  }
+  &.online {
+    color: #1bda9d;
+  }
 }

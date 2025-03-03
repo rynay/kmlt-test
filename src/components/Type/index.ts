@@ -1,1 +1,1 @@
-export { Type as default } from './Type';
+export { Type as default } from "./Type";

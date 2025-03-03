@@ -1,28 +1,27 @@
 export enum Type {
-    CLASSIC = "CLASSIC",
-    SERVER_SIDE = "SERVER_SIDE",
-    MVT = "MVT"
+  CLASSIC = "CLASSIC",
+  SERVER_SIDE = "SERVER_SIDE",
+  MVT = "MVT",
 }
-  
+
 export enum Status {
-    DRAFT = "DRAFT",
-    ONLINE = "ONLINE",
-    PAUSED = "PAUSED",
-    STOPPED = "STOPPED",
+  DRAFT = "DRAFT",
+  ONLINE = "ONLINE",
+  PAUSED = "PAUSED",
+  STOPPED = "STOPPED",
 }
-  
+
 export interface Site {
-    id: number;
-    url: string;
+  id: number;
+  url: string;
 }
 
 export interface Test {
-    id: number;
-    name: string;
-    type: Type;
-    status: Status;
-    siteId: number;
-    siteValue?: Site;
-    site?: string;
+  id: number;
+  name: string;
+  type: Type;
+  status: Status;
+  siteId: number;
+  siteValue?: Site;
+  site?: string;
 }
-  

@@ -1,30 +1,34 @@
 .listItem {
-    display: grid;
-    grid-template-columns: 4fr 1fr 1fr 1.5fr 1fr;
-    align-items: center;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 1.5fr 1fr;
+  align-items: center;
 
-    font-size: 1.3rem;
-    font-weight: 500;
-    padding: 2rem 1.2rem 2rem 1.5rem;
-    background-color: #fff;
-    border-radius: 0.3rem;
-    border-left: 0.3rem solid;
-    transition: all 0.3s;
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 2rem 1.2rem 2rem 1.5rem;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  border-left: 0.3rem solid;
+  transition: all 0.3s;
 
-    &:hover {
-        cursor: pointer;
-        box-shadow: 0 0 2rem #00000026;
-    }
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 0 2rem #00000026;
+  }
 
-    &_1, &_4, &_5 {
-        border-left-color: #E14165;
-    }
+  &_1,
+  &_4,
+  &_5 {
+    border-left-color: #e14165;
+  }
 
-    &_2, &_7 {
-        border-left-color: #C2C2FF;
-    }
+  &_2,
+  &_7 {
+    border-left-color: #c2c2ff;
+  }
 
-    &_3, &_6 {
-        border-left-color: #8686FF;
-    }
+  &_3,
+  &_6 {
+    border-left-color: #8686ff;
+  }
 }

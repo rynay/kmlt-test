@@ -1,39 +1,39 @@
 .form {
-    font-family: Roboto, sans-serif;
-    position: relative;
-    display: flex;
+  font-family: Roboto, sans-serif;
+  position: relative;
+  display: flex;
 
-    &__icon {
-        position: absolute;
-        top: 50%;
-        left: 1.5rem;
-        transform: translateY(-55%);
-    }
+  &__icon {
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    transform: translateY(-55%);
+  }
 
-    &__input {
-        font-family: inherit;
-        color: inherit;
-        font-weight: 500;
-        flex: 1;
-        font-size: 1.4rem;
-        line-height: 1;
-        border: 0.1rem solid #EBEBEB;
-        border-radius: 1.5rem;
-        height: 4.5rem;
-        padding: 0 7rem 0 3.5rem;
-        
-        &::placeholder {
-            font-weight: 400;
-            color: #D1D1D1;
-        }
-    }
+  &__input {
+    font-family: inherit;
+    color: inherit;
+    font-weight: 500;
+    flex: 1;
+    font-size: 1.4rem;
+    line-height: 1;
+    border: 0.1rem solid #ebebeb;
+    border-radius: 1.5rem;
+    height: 4.5rem;
+    padding: 0 7rem 0 3.5rem;
 
-    &__count {
-        font-size: 1.4rem;
-        color: #D1D1D1;
-        position: absolute;
-        top: 50%;
-        right: 1.5rem;
-        transform: translateY(-50%);
+    &::placeholder {
+      font-weight: 400;
+      color: #d1d1d1;
     }
+  }
+
+  &__count {
+    font-size: 1.4rem;
+    color: #d1d1d1;
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+  }
 }

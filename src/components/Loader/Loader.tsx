@@ -1,10 +1,12 @@
-import { FC } from 'react';
-import styles from './Loader.module.scss';
+import { FC } from "react";
+import styles from "./Loader.module.scss";
 
 type Props = {
-    loading: boolean;
-}
+  loading: boolean;
+};
 
 export const Loader: FC<Props> = ({ loading }) => {
-    return <div className={`${styles.loader} ${!loading ? styles.hidden : ''}`} />
-}
+  return (
+    <div className={`${styles.loader} ${!loading ? styles.hidden : ""}`} />
+  );
+};

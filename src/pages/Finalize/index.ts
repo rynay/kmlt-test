@@ -1,1 +1,1 @@
-export { Finalize as default } from './Finalize';
+export { Finalize as default } from "./Finalize";

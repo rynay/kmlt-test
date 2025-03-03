@@ -6,100 +6,100 @@ import ListItem from "../../components/ListItem";
 import Filter from "../../components/Filter";
 import Search from "../../components/Search";
 import Page from "../../components/Page";
-import Loader from "../../components/Loader";
 import { filterBySearchString, sortByParam } from "./helpers";
 import { FILTERS } from "./constants";
 import Empty from "../../components/Empty";
 import { mapTests } from "../../helpers";
 
 export const Dashboard = () => {
-    const [tests, setTests] = useState<Test[]>([]);
-    const [filteredTests, setFilteredTests] = useState<Test[]>([]);
-    const [loading, setLoading] = useState(false);
-    const [sort, setSort] = useState<keyof Test>();
-    const [search, setSearch] = useState('');
-    const [order, setOrder] = useState<'asc' | 'desc'>('asc')
+  const [tests, setTests] = useState<Test[]>([]);
+  const [filteredTests, setFilteredTests] = useState<Test[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [sort, setSort] = useState<keyof Test>();
+  const [search, setSearch] = useState("");
+  const [order, setOrder] = useState<"asc" | "desc">("asc");
 
-    useEffect(() => {
-      const fetchAndSetData = async () => {
-        setLoading(true);
-        try {
-          const fetchedTests = await getTests();
-          const fetchedSites = await getSites();
-          setLoading(false);
-          if (fetchedSites) {
-            const testResults = mapTests(fetchedSites, fetchedTests || []);
-            setFilteredTests(testResults);
-            setTests(testResults);
-          }
-        } catch (error) {
-          console.error(error);
+  useEffect(() => {
+    const fetchAndSetData = async () => {
+      setLoading(true);
+      try {
+        const fetchedTests = await getTests();
+        const fetchedSites = await getSites();
+        setLoading(false);
+        if (fetchedSites) {
+          const testResults = mapTests(fetchedSites, fetchedTests || []);
+          setFilteredTests(testResults);
+          setTests(testResults);
         }
+      } catch (error) {
+        console.error(error);
       }
-  
-      fetchAndSetData();
+    };
 
-      return () => {
-        setTests([]);
-        setFilteredTests([]);
-        setLoading(true);
-      }
-    }, []);
+    fetchAndSetData();
 
-    const handleChange = useCallback((
+    return () => {
+      setTests([]);
+      setFilteredTests([]);
+      setLoading(true);
+    };
+  }, []);
+
+  const handleChange = useCallback(
+    (
       search: string,
-      order: 'asc' | 'desc',
+      order: "asc" | "desc",
       tests: Test[],
       sort?: keyof Test,
     ) => {
       setFilteredTests(
         filterBySearchString(
-          search, sort ? sortByParam(sort, tests, order) : tests
-        )
-      )
-    }, [])
-    
-    const prevSortParam = useRef<keyof Test>(null);
-    const handleSort = useCallback((s: keyof Test) => {
-      setSort(s);
-      if (prevSortParam.current === s) setOrder(order => (order === 'asc') ? 'desc' : 'asc')
-      else setOrder('asc');
-      prevSortParam.current = s;
-    }, []);
-
-    useEffect(() => {
-      handleChange(
-        search,
-        order,
-        tests,
-        sort,
+          search,
+          sort ? sortByParam(sort, tests, order) : tests,
+        ),
       );
-    }, [
-      handleChange,
-      sort,
-      search,
-      order,
-      tests
-    ])
+    },
+    [],
+  );
 
-    const handleReset = useCallback(() => {
-      setSearch('');
-    }, []);
+  const prevSortParam = useRef<keyof Test>(null);
+  const handleSort = useCallback((s: keyof Test) => {
+    setSort(s);
+    if (prevSortParam.current === s)
+      setOrder((order) => (order === "asc" ? "desc" : "asc"));
+    else setOrder("asc");
+    prevSortParam.current = s;
+  }, []);
 
-    return (
-      <Page title="Dashboard" loading={loading}>
-        <Search
-          itemsCount={filteredTests.length}
-          search={search}
-          onSearch={setSearch}
+  useEffect(() => {
+    handleChange(search, order, tests, sort);
+  }, [handleChange, sort, search, order, tests]);
+
+  const handleReset = useCallback(() => {
+    setSearch("");
+  }, []);
+
+  return (
+    <Page title="Dashboard" loading={loading}>
+      <Search
+        itemsCount={filteredTests.length}
+        search={search}
+        onSearch={setSearch}
+      />
+      {!!filteredTests.length && (
+        <Filter
+          sort={sort}
+          order={order}
+          onSort={handleSort}
+          filters={FILTERS}
         />
-        {!!filteredTests.length && <Filter sort={sort} order={order} onSort={handleSort} filters={FILTERS} />}
-        {!filteredTests.length && !loading && <Empty onReset={handleReset} />}
-        <List>
-          {filteredTests.map((test) => (
-            <ListItem key={test.id} {...test} />
-          ))}
-        </List>
-      </Page>
-    )
-}
+      )}
+      {!filteredTests.length && !loading && <Empty onReset={handleReset} />}
+      <List>
+        {filteredTests.map((test) => (
+          <ListItem key={test.id} {...test} />
+        ))}
+      </List>
+    </Page>
+  );
+};

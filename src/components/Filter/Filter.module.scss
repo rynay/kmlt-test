@@ -1,46 +1,46 @@
 .filter {
-    display: grid;
-    grid-template-columns: 4fr 1fr 1fr 1.5fr 1fr;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr 1.5fr 1fr;
+  align-items: center;
+
+  margin-top: 3rem;
+  padding: 0 1.2rem;
+
+  & button {
+    cursor: pointer;
+    padding: 2rem 0;
+    display: flex;
+    border: 0;
+    background-color: transparent;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: #999999;
+    font-weight: 500;
+    font-family: Roboto, sans-serif;
+
+    display: flex;
     align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s;
 
-    margin-top: 3rem;
-    padding: 0 1.2rem;
+    &:hover {
+      color: #5d5d5d;
+    }
+  }
 
-    & button {
-        cursor: pointer;
-        padding: 2rem 0;
-        display: flex;  
-        border: 0;
-        background-color: transparent;
-        font-size: 1.1rem;
-        text-transform: uppercase;
-        color: #999999;
-        font-weight: 500;
-        font-family: Roboto, sans-serif;
+  &__icon {
+    transform: translateY(-50%);
 
-        display: flex;
-        align-items: center;
-        gap: 0.8rem;
-        transition: all 0.3s;
-
-        &:hover {
-            color: #5d5d5d;
-        }
+    &_hidden {
+      opacity: 0;
     }
 
-    &__icon {
-        transform: translateY(-50%);
-    
-        &_hidden {
-            opacity: 0;
-        }
-
-        &_down {
-            transform: translateY(-50%) rotate(180deg);
-        }
+    &_down {
+      transform: translateY(-50%) rotate(180deg);
     }
+  }
 
-    & > :first-child {
-        padding-left: 0.6rem;
-    }
+  & > :first-child {
+    padding-left: 0.6rem;
+  }
 }

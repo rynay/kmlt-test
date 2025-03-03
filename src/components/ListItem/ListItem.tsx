@@ -11,8 +11,8 @@ type Props = Omit<
   "id"
 > &
   Test & {
-  withLink?: boolean;
-};
+    withLink?: boolean;
+  };
 
 export const ListItem: FC<Props> = ({
   id,
@@ -33,7 +33,7 @@ export const ListItem: FC<Props> = ({
       <Type>{type}</Type>
       <Status>{status}</Status>
       <Hostname>{siteValue?.url}</Hostname>
-      { withLink && <Link id={id} status={status} /> }
+      {withLink && <Link id={id} status={status} />}
     </li>
   );
 };

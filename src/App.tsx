@@ -1,7 +1,7 @@
-import { Route, Routes } from 'react-router';
-import Dashboard from './pages/Dashboard';
-import Results from './pages/Results';
-import Finalize from './pages/Finalize';
+import { Route, Routes } from "react-router";
+import Dashboard from "./pages/Dashboard";
+import Results from "./pages/Results";
+import Finalize from "./pages/Finalize";
 
 function App() {
   return (

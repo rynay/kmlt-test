@@ -1,32 +1,32 @@
 .empty {
-    padding: 18rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6rem;
-    color: #222222;
-    font-family: Montserrat, sans-serif;
+  padding: 18rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rem;
+  color: #222222;
+  font-family: Montserrat, sans-serif;
 
-    p {
-        font-size: 1.8rem;
-        font-weight: 500;
+  p {
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+
+  button {
+    min-width: 9.5rem;
+    min-height: 3rem;
+    border-radius: 1rem;
+    color: #fff;
+    background-color: #2ee5ac;
+    border: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: all 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #26c391;
     }
-
-    button {
-        min-width: 9.5rem;
-        min-height: 3rem;
-        border-radius: 1rem;
-        color: #fff;
-        background-color: #2EE5AC;
-        border: 0;
-        font-size: 1.2rem;
-        font-weight: 600;
-        font-family: inherit;
-        transition: all 0.2s;
-
-        &:hover {
-            cursor: pointer;
-            background-color: #26c391;
-        }
-    }
+  }
 }
